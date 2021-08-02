@@ -15,37 +15,39 @@ export class UsuariosService {
     let params = new HttpParams().append('page', '1');
     params = params.append('nombre', 'Alan Miranda');
 
-    const headers = new HttpHeaders({
-      'token-usuario': 'ABC548746ASD684EW24AS3D21'
-    });
+    // const headers = new HttpHeaders({
+    //   'token-usuario': 'ABC548746ASD684EW24AS3D21'
+    // });
 
-    return this.http.get('https://reqres23432.in/api/user', {
-      params,
-      headers
+    return this.http.get('https://reqres234234.in/api/user', {
+      params
+      // headers
     }).pipe(
       map( resp => resp['data'] ),
-      catchError( this.manejarError )
-      // catchError( err => {
 
-      //   console.log('Sucedió un error');
-      //   console.log('Registrado en el log file');
-      //   console.warn(err);
+      //////// SE HIZO EL CATCH EN EL INTERCEPTOR
+      // catchError( this.manejarError )
+      // // catchError( err => {
 
-      //   // catchError necesita retornar un observable
-      //   return throwError('Error personalizado');
+      // //   console.log('Sucedió un error');
+      // //   console.log('Registrado en el log file');
+      // //   console.warn(err);
 
-      // })
+      // //   // catchError necesita retornar un observable
+      // //   return throwError('Error personalizado');
+
+      // // })
     )
 
   }
 
-  manejarError( error: HttpErrorResponse ) {
-    console.log('Sucedió un error');
-    console.log('Registrado en el log file');
-    console.warn(error);
+  // manejarError( error: HttpErrorResponse ) {
+  //   console.log('Sucedió un error');
+  //   console.log('Registrado en el log file');
+  //   console.warn(error);
 
-    // catchError necesita retornar un observable
-    return throwError('Error personalizado');
-  }
+  //   // catchError necesita retornar un observable
+  //   return throwError('Error personalizado');
+  // }
   
 }
